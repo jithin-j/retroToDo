@@ -1,7 +1,8 @@
-export function DoubleBorder({ children, style, accent = false, padding = 0, onClick, title, onDragOver, onDragLeave, onDrop }) {
+export function DoubleBorder({ children, style, accent = false, padding = 0, className, onClick, title, onDragOver, onDragLeave, onDrop }) {
   const c = accent ? 'var(--accent)' : 'var(--rule)';
   return (
     <div
+      className={className}
       onClick={onClick}
       title={title}
       onDragOver={onDragOver}

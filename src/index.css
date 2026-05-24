@@ -76,6 +76,113 @@ body::after {
 
 @keyframes blink { 50% { opacity: 0; } }
 
+
+/* ═══════════════════════════════════════════════════════
+   Responsive — tablet (≤880px)
+   ═══════════════════════════════════════════════════════ */
 @media (max-width: 880px) {
-  .board-grid { grid-template-columns: 1fr !important; }
+  .board-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .app-shell {
+    padding: 16px 14px 40px !important;
+  }
+
+  /* decorative ASCII art overflows — clip it */
+  .ascii-line {
+    display: none !important;
+  }
+
+  /* title smaller on tablet */
+  .header-title {
+    font-size: 64px !important;
+  }
+
+  /* composer: wrap chips below input row */
+  .composer-inner {
+    flex-wrap: wrap !important;
+  }
+  .composer-chips {
+    margin-left: 0 !important;
+    order: 4;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: flex-start !important;
+  }
+  .blink-cursor {
+    display: none !important;
+  }
+
+  /* columns don't need tall minHeight when stacked */
+  .column-panel {
+    min-height: 200px !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   Responsive — mobile (≤520px)
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .app-shell {
+    padding: 12px 8px 28px !important;
+  }
+
+  /* smaller title on phones */
+  .header-title {
+    font-size: 48px !important;
+  }
+
+  /* hide keyboard hints — irrelevant on touch */
+  .keyboard-hints {
+    display: none !important;
+  }
+
+  /* task action buttons: always visible on touch (no hover) */
+  .task-actions {
+    opacity: 1 !important;
+  }
+
+  /* hide drag grip on touch devices (no drag API on mobile) */
+  .task-grip {
+    display: none !important;
+  }
+
+  /* hide the task index number to save space */
+  .task-idx {
+    display: none !important;
+  }
+
+  /* tighter task items */
+  .task-item {
+    gap: 6px !important;
+    padding: 6px 6px !important;
+  }
+
+  /* column header tighter */
+  .col-header {
+    padding: 10px 12px 6px !important;
+  }
+  .col-label {
+    font-size: 22px !important;
+  }
+
+  /* composer input placeholder shorter */
+  .composer-input::placeholder {
+    font-size: 13px;
+  }
+
+  /* footer stats tighter */
+  .footer-row {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  /* footer tagline: let it wrap */
+  .footer-tagline {
+    font-size: 10px !important;
+    word-break: break-word;
+  }
 }

@@ -9,7 +9,7 @@ export default function Composer({ inputRef, draft, setDraft, target, setTarget,
   return (
     <section style={{ marginBottom: 28 }}>
       <DoubleBorder accent style={{ padding: '14px 16px', background: 'var(--paper)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div className="composer-inner" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ color: 'var(--accent)', fontFamily: 'VT323, monospace', fontSize: 28, lineHeight: 1 }}>
             &gt;
           </span>
@@ -19,15 +19,18 @@ export default function Composer({ inputRef, draft, setDraft, target, setTarget,
             onChange={e => setDraft(e.target.value)}
             onKeyDown={handleKey}
             placeholder="NEW TASK ── what needs doing?"
+            className="composer-input"
             style={styles.input}
             spellCheck="false"
             autoComplete="off"
           />
-          <Blink>
-            <span style={{ color: 'var(--accent)', fontFamily: 'VT323, monospace', fontSize: 28, lineHeight: 1 }}>▌</span>
-          </Blink>
+          <span className="blink-cursor">
+            <Blink>
+              <span style={{ color: 'var(--accent)', fontFamily: 'VT323, monospace', fontSize: 28, lineHeight: 1 }}>▌</span>
+            </Blink>
+          </span>
 
-          <div style={{ display: 'flex', gap: 6, marginLeft: 12 }}>
+          <div className="composer-chips" style={{ display: 'flex', gap: 6, marginLeft: 12 }}>
             {COLUMNS.map(col => {
               const active = col.id === target;
               return (
@@ -47,7 +50,7 @@ export default function Composer({ inputRef, draft, setDraft, target, setTarget,
             })}
           </div>
 
-          <button onClick={onAdd} style={styles.addBtn} title="Add task (Enter)">
+          <button className="composer-add" onClick={onAdd} style={styles.addBtn} title="Add task (Enter)">
             <span style={{ fontFamily: 'VT323, monospace', fontSize: 24, lineHeight: 1 }}>[ + ADD ]</span>
           </button>
         </div>
@@ -85,5 +88,6 @@ const styles = {
     cursor: 'pointer',
     boxShadow: '2px 2px 0 var(--ink)',
     marginLeft: 4,
+    flexShrink: 0,
   },
 };

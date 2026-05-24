@@ -34,6 +34,7 @@ export default function TaskItem({ task, idx, colId, editing, setEditing, onTogg
 
   return (
     <li
+      className="task-item"
       draggable={!editing}
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
@@ -47,8 +48,8 @@ export default function TaskItem({ task, idx, colId, editing, setEditing, onTogg
         outline: isDragging ? '1px dashed var(--accent)' : 'none',
       }}
     >
-      <span style={{ ...styles.grip, opacity: hover || isDragging ? 1 : 0.35 }} title="Drag to move">⠿</span>
-      <span style={styles.idx}>{String(idx).padStart(2, '0')}</span>
+      <span className="task-grip" style={{ ...styles.grip, opacity: hover || isDragging ? 1 : 0.35 }} title="Drag to move">⠿</span>
+      <span className="task-idx" style={styles.idx}>{String(idx).padStart(2, '0')}</span>
 
       <button onClick={onToggle} style={styles.checkbox} title="Toggle done">
         <span style={{ color: task.done ? 'var(--accent)' : 'var(--ink-soft)', fontWeight: 600 }}>
@@ -83,7 +84,7 @@ export default function TaskItem({ task, idx, colId, editing, setEditing, onTogg
         </span>
       )}
 
-      <div style={{ display: 'flex', gap: 4, marginLeft: 'auto', opacity: hover ? 1 : 0, transition: 'opacity .15s ease' }}>
+      <div className="task-actions" style={{ display: 'flex', gap: 4, marginLeft: 'auto', flexShrink: 0, opacity: hover ? 1 : 0, transition: 'opacity .15s ease' }}>
         <button onClick={() => onMove(-1)} disabled={!canLeft}  style={{ ...styles.iconBtn, opacity: canLeft  ? 1 : 0.3 }} title="Move left">◀</button>
         <button onClick={() => onMove(+1)} disabled={!canRight} style={{ ...styles.iconBtn, opacity: canRight ? 1 : 0.3 }} title="Move right">▶</button>
         <button onClick={() => setEditing(true)} style={styles.iconBtn} title="Edit">✎</button>
@@ -124,6 +125,7 @@ const styles = {
     padding: 0,
     fontSize: 14,
     fontFamily: 'IBM Plex Mono, monospace',
+    flexShrink: 0,
   },
   itemText: {
     flex: 1,
@@ -131,6 +133,7 @@ const styles = {
     fontSize: 14,
     cursor: 'text',
     overflowWrap: 'anywhere',
+    minWidth: 0,
   },
   itemInput: {
     flex: 1,
@@ -141,6 +144,7 @@ const styles = {
     fontFamily: 'IBM Plex Mono, monospace',
     fontSize: 14,
     padding: '3px 6px',
+    minWidth: 0,
   },
   iconBtn: {
     background: 'transparent',

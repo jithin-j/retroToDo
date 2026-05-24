@@ -5,18 +5,18 @@ export default function Footer({ stats }) {
 
   return (
     <footer style={{ marginTop: 8 }}>
-      <span style={{ color: 'var(--rule)', fontFamily: 'IBM Plex Mono, monospace' }}>
+      <span className="ascii-line" style={{ color: 'var(--rule)', fontFamily: 'IBM Plex Mono, monospace' }}>
         ╚═══════════════════════════════════════════════════════════════
       </span>
 
-      <div style={styles.row}>
+      <div className="footer-row" style={styles.row}>
         <div style={{ display: 'flex', gap: 28, alignItems: 'center', flexWrap: 'wrap' }}>
           <Stat label="TOTAL" value={stats.total} />
           <Stat label="OPEN"  value={stats.open}  accent />
           <Stat label="DONE"  value={stats.done} />
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <span style={{ color: 'var(--ink-mute)', fontFamily: 'IBM Plex Mono, monospace' }}>progress</span>
           <span style={{ color: 'var(--accent)', letterSpacing: 1, fontFamily: 'IBM Plex Mono, monospace' }}>
             {'█'.repeat(filled)}
@@ -28,8 +28,8 @@ export default function Footer({ stats }) {
         </div>
       </div>
 
-      <span style={{ color: 'var(--ink-mute)', fontSize: 12, fontFamily: 'IBM Plex Mono, monospace' }}>
-        ── ready. awaiting input. ── data stored locally ── © retro tasks dept., a quiet basement office ──
+      <span className="footer-tagline" style={{ color: 'var(--ink-mute)', fontSize: 12, fontFamily: 'IBM Plex Mono, monospace' }}>
+        ── ready. awaiting input. ── data stored locally ── © retro tasks dept. ──
       </span>
     </footer>
   );

@@ -12,29 +12,29 @@ export default function Header({ theme, setTheme, tick }) {
   return (
     <header style={{ marginBottom: 28 }}>
       <div style={styles.topbar}>
-        <span style={{ color: 'var(--ink-mute)', fontFamily: 'IBM Plex Mono, monospace' }}>
+        <span className="ascii-line" style={{ color: 'var(--ink-mute)', fontFamily: 'IBM Plex Mono, monospace' }}>
           ╔═══ retro://tasks ═══ v1.0 ═══════════════════════════════
         </span>
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          <span style={{ color: 'var(--ink-mute)' }}>{dateStr} · {timeStr}</span>
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
+          <span style={{ color: 'var(--ink-mute)', fontSize: 12 }}>{dateStr} · {timeStr}</span>
           <ThemeToggle theme={theme} setTheme={setTheme} />
         </div>
       </div>
 
       <div style={styles.titleRow}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 18 }}>
-          <h1 style={styles.title}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, flexWrap: 'wrap' }}>
+          <h1 className="header-title" style={styles.title}>
             ToDO<Blink><span style={{ color: 'var(--accent)', fontWeight: 400 }}>_</span></Blink>
           </h1>
           <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.4 }}>
             <div>a task terminal, est. 1984</div>
-            <div style={{ color: 'var(--ink-mute)' }}>
+            <div className="keyboard-hints" style={{ color: 'var(--ink-mute)' }}>
               type <Kbd>/</Kbd> to focus · <Kbd>⏎</Kbd> to add · <Kbd>⌘D</Kbd> theme · drag{' '}
               <span style={{ color: 'var(--accent)' }}>⠿</span> to move
             </div>
           </div>
         </div>
-        <span style={{ color: 'var(--rule)', fontSize: 13, fontFamily: 'IBM Plex Mono, monospace' }}>
+        <span className="ascii-line" style={{ color: 'var(--rule)', fontSize: 13, fontFamily: 'IBM Plex Mono, monospace' }}>
           ────────────────●────────●────────────────
         </span>
       </div>

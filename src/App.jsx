@@ -116,7 +116,7 @@ export default function App() {
   }, [tasks]);
 
   return (
-    <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 28px 60px' }}>
+    <div className="app-shell" style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 28px 60px' }}>
       <Header theme={theme} setTheme={setTheme} tick={tick} />
 
       <main>

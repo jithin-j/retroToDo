@@ -28,6 +28,7 @@ export default function Column({ col, tasks, editingId, setEditingId, onToggle, 
   return (
     <DoubleBorder
       accent={isOver}
+      className="column-panel"
       onDragOver={onDragOver}
       onDragLeave={onDragLeave}
       onDrop={onDrop}
@@ -39,9 +40,9 @@ export default function Column({ col, tasks, editingId, setEditingId, onToggle, 
         transition: 'background .15s ease',
       }}
     >
-      <header style={styles.colHeader}>
+      <header className="col-header" style={styles.colHeader}>
         <div>
-          <div style={styles.colLabel}>{col.label}</div>
+          <div className="col-label" style={styles.colLabel}>{col.label}</div>
           <div style={styles.colSub}>{col.sub}</div>
         </div>
         <div style={{ textAlign: 'right' }}>
@@ -72,8 +73,8 @@ export default function Column({ col, tasks, editingId, setEditingId, onToggle, 
                 : col.id === 'pending'
                   ? '── nothing pending. press / to add ──'
                   : col.id === 'progress'
-                    ? '── nothing in progress. drop a task here ──'
-                    : '── no completed tasks yet. ──'}
+                    ? '── nothing in progress ──'
+                    : '── no completed tasks yet ──'}
             </span>
           </li>
         )}
