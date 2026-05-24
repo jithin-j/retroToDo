@@ -76,6 +76,19 @@ body::after {
 
 @keyframes blink { 50% { opacity: 0; } }
 
+/* prevent any horizontal overflow on narrow viewports */
+.app-shell {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.board-grid {
+  min-width: 0;
+}
+.column-panel {
+  overflow: hidden;
+  min-width: 0;
+}
+
 
 /* ═══════════════════════════════════════════════════════
    Responsive — tablet (≤880px)

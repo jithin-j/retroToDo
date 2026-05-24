@@ -131,7 +131,7 @@ export default function App() {
 
         <section
           className="board-grid"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18, marginBottom: 28 }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18, marginBottom: 28, minWidth: 0 }}
         >
           {COLUMNS.map(col => (
             <Column
