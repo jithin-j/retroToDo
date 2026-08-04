@@ -5,6 +5,7 @@ import Column from './components/Column';
 import Footer from './components/Footer';
 import { COLUMNS, COL_IDS, uid, migrate, LS_TASKS, LS_THEME } from './lib/tasks';
 import { load, save } from './lib/storage';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [tasks, setTasks] = useState(() => {
@@ -116,6 +117,7 @@ export default function App() {
   }, [tasks]);
 
   return (
+    <>
     <div className="app-shell" style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 28px 60px' }}>
       <Header theme={theme} setTheme={setTheme} tick={tick} />
 
@@ -157,5 +159,7 @@ export default function App() {
         <Footer stats={stats} />
       </main>
     </div>
+    <Analytics/>
+    </>
   );
 }
